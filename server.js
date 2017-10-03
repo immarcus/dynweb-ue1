@@ -2,10 +2,8 @@ const http = require('http');
 const url = require('url');
 
 const server = http.createServer(function(request, response) {
-  console.log('Ich logge!');
-  console.log(request.url);
 
-  const parsedUrlObj = url.parse(request.url, true); //true am Schluss um einzelne Query Attribute aufzuteilen
+  const parsedUrlObj = url.parse(request.url, true);
 
   if ( parsedUrlObj.pathname === "/http-examples" || parsedUrlObj.pathname === "/http-examples/" ) {
     response.statusCode = 200;
@@ -32,8 +30,7 @@ const server = http.createServer(function(request, response) {
       </body>
     </html>`;
     response.write(html);
-  } else if (parsedUrlObj.pathname === "/buchstabiere"){
-    //response.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
+  } else if (parsedUrlObj.pathname === "/buchstabiere") {
     response.setHeader('Content-Type', 'text/html; charset=utf-8');
     response.statusCode = 200;
 
