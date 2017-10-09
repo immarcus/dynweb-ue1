@@ -37,144 +37,139 @@ const server = http.createServer(function(request, response) {
     const wordParam = parsedUrlObj.query.w;
     const text = `Wort zum Buchstabieren: ${wordParam}`;
 
-    response.write(text + '<br />');
+    response.write(text + '<br />' + '<br />');
 
     var letters = wordParam.split("");
-    for (i = 0; i <= letters.length - 1; i++) {
-      if (i == 0) {
-        response.write( '<br />' + letters[i] + ' wie ' + getSpelling(letters[i]) + '<br />' );
-      } else {
-        response.write( letters[i] + ' wie ' + getSpelling(letters[i]) + '<br />' );
-      }
-
+    for (i = 0; i < letters.length; i++) {
+      response.write( letters[i] + ' wie ' + getSpelling(letters[i]) + '<br />' );
     }
 
-function getSpelling(letter) {
-  switch (letter) {
-    case "a":
-    case "A":
-      return "Anton";
-      break;
-    case "ä":
-    case "Ä":
-      return "Ärger";
-      break;
-    case "b":
-    case "B":
-      return "Berta";
-      break;
-    case "c":
-    case "C":
-      return "Cäsar";
-      break;
-    case "d":
-    case "D":
-      return "Dora";
-      break;
-    case "e":
-    case "E":
-      return "Emil";
-      break;
-    case "f":
-    case "F":
-      return "Friedrich";
-      break;
-    case "g":
-    case "G":
-      return "Gustav";
-      break;
-    case "h":
-    case "H":
-      return "Heinrich";
-      break;
-    case "i":
-    case "I":
-      return "Ida";
-      break;
-    case "j":
-    case "J":
-      return "Julius";
-      break;
-    case "k":
-    case "K":
-      return "Konrad";
-      break;
-    case "l":
-    case "L":
-      return "Ludwig";
-      break;
-    case "m":
-    case "M":
-      return "Martha";
-      break;
-    case "n":
-    case "N":
-      return "Nordpol";
-      break;
-    case "o":
-    case "O":
-      return "Otto";
-      break;
-    case "ö":
-    case "Ö":
-      return "Österreich";
-      break;
-    case "p":
-    case "P":
-      return "Paula";
-      break;
-    case "q":
-    case "Q":
-      return "Quelle";
-      break;
-    case "r":
-    case "R":
-      return "Richard";
-      break;
-    case "s":
-    case "S":
-      return "Siegfried";
-      break;
-    case "ß":
-      return "scharfes S";
-      break;
-    case "t":
-    case "T":
-      return "Theodor";
-      break;
-    case "u":
-    case "U":
-      return "Ulrich";
-      break;
-    case "ü":
-    case "Ü":
-      return "Übel";
-      break;
-    case "v":
-    case "V":
-      return "Viktor";
-      break;
-    case "w":
-    case "W":
-      return "Wilhelm";
-      break;
-    case "x":
-    case "X":
-      return "Xaver";
-      break;
-    case "y":
-    case "Y":
-      return "Ypsilon";
-      break;
-    case "z":
-    case "Z":
-      return "Zürich";
-      break;
-    default:
-     return "";
-      break;
-  }
-}
+    function getSpelling(letter) {
+      switch (letter) {
+        case "a":
+        case "A":
+          return "Anton";
+          break;
+        case "ä":
+        case "Ä":
+          return "Ärger";
+          break;
+        case "b":
+        case "B":
+          return "Berta";
+          break;
+        case "c":
+        case "C":
+          return "Cäsar";
+          break;
+        case "d":
+        case "D":
+          return "Dora";
+          break;
+        case "e":
+        case "E":
+          return "Emil";
+          break;
+        case "f":
+        case "F":
+          return "Friedrich";
+          break;
+        case "g":
+        case "G":
+          return "Gustav";
+          break;
+        case "h":
+        case "H":
+          return "Heinrich";
+          break;
+        case "i":
+        case "I":
+          return "Ida";
+          break;
+        case "j":
+        case "J":
+          return "Julius";
+          break;
+        case "k":
+        case "K":
+          return "Konrad";
+          break;
+        case "l":
+        case "L":
+          return "Ludwig";
+          break;
+        case "m":
+        case "M":
+          return "Martha";
+          break;
+        case "n":
+        case "N":
+          return "Nordpol";
+          break;
+        case "o":
+        case "O":
+          return "Otto";
+          break;
+        case "ö":
+        case "Ö":
+          return "Österreich";
+          break;
+        case "p":
+        case "P":
+          return "Paula";
+          break;
+        case "q":
+        case "Q":
+          return "Quelle";
+          break;
+        case "r":
+        case "R":
+          return "Richard";
+          break;
+        case "s":
+        case "S":
+          return "Siegfried";
+          break;
+        case "ß":
+          return "scharfes S";
+          break;
+        case "t":
+        case "T":
+          return "Theodor";
+          break;
+        case "u":
+        case "U":
+          return "Ulrich";
+          break;
+        case "ü":
+        case "Ü":
+          return "Übel";
+          break;
+        case "v":
+        case "V":
+          return "Viktor";
+          break;
+        case "w":
+        case "W":
+          return "Wilhelm";
+          break;
+        case "x":
+        case "X":
+          return "Xaver";
+          break;
+        case "y":
+        case "Y":
+          return "Ypsilon";
+          break;
+        case "z":
+        case "Z":
+          return "Zürich";
+          break;
+        default:
+         return "";
+          break;
+      }
+    }
 
   } else {
     response.statusCode = 404;
